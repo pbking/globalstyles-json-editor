@@ -1,7 +1,5 @@
 <?php
 
-// include ( plugin_dir_path( __FILE__ ) . '/wp-customize-json-control.php' );
-
 class GlobalStylesJSONCustomizer {
 
 	private $section_key = 'customize-global-styles-json';
@@ -59,16 +57,7 @@ class GlobalStylesJSONCustomizer {
 	}
 
 	function handle_customize_save_after( $wp_customize ) {
-
-		$user_custom_post_type_id     = WP_Theme_JSON_Resolver_Gutenberg::get_user_custom_post_type_id();
-		$user_theme_json_post         = get_post( $user_custom_post_type_id );
-	
-		$user_json = $wp_customize->get_setting( $this->section_key )->post_value();
-
-		//TODO: For reasons unknown this isn't persisting the changes...
-		$user_theme_json_post->post_content = json_encode( json_decode( $user_json ) );
-		return wp_update_post( $user_theme_json_post );
-
+		//TODO
 	}
 }
 
